@@ -1,0 +1,260 @@
+/*
+	Purple: #391c78;
+	btns color: #622eff;
+*/
+
+/*------------------------------------------------------*/
+
+/* GLOBAL RULES */
+
+/*------------------------------------------------------*/
+
+/*Importing fonts*/
+
+@import url(../../vendors/fonts/Lato-Regular.ttf);
+@import url(../../vendors/fonts/Lato-Light.ttf);
+@import url(../../vendors/fonts/Lato-LightItalic.ttf);
+
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: auto;
+}
+
+html {
+	background-color: #fff;
+	font-family: 'Lato', sans-serif;
+	color: #fff;
+	font-weight: 300;
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
+}
+
+.row {
+	width: 1140px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 80px 0;
+}
+
+span {
+	display: block;
+}
+
+.clearfix {
+	zoom: 1
+}
+
+.clearfix:after {
+	content: '.';
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.text-center {
+	text-align: center;
+}
+
+/*------------------------------------------------------*/
+
+/* COMPONENTS */
+
+/*------------------------------------------------------*/
+
+/* ---------- HEADINGS ---------- */
+
+h1 {
+	color: #fff;
+	letter-spacing: 4px;
+	font-size: 200%;
+	word-spacing: 3px;
+	font-weight: 400;
+	text-transform: uppercase;
+	margin-top: 10vh;
+
+}
+
+
+/* ---------- INPUT FIELD ---------- */
+
+.input-field,
+.btn-primary,
+.btn-success {
+	display: block;
+	width: 100%;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #391c78;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: 5px;
+	transition: border-color .15s ease-in-out;
+	height: 40px;
+	margin-bottom: 20px;
+}
+
+.input-field:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: rgb(75, 46, 139);
+	outline: 0;
+	color: #391c78;
+}
+
+/* ---------- BUTTON ---------- */
+
+.btn-primary,
+.btn-success {
+	cursor: pointer;
+	background-color: #622eff;
+	color: #fff;
+	font-size: 90%;
+	padding-top: .5rem;
+	padding-bottom: 1.9rem;
+	transition: background-color .2s ease-in-out;
+	margin-top: 10px;
+}
+
+.btn-primary:hover {
+	background-color: #551dff;
+}
+
+.btn-success {
+	transition: background-color .2s ease-in-out;
+	background-color: #50b214;
+}
+
+.btn-success:hover {
+	background-color: #49a312;
+
+}
+
+
+/*------------------------------------------------------*/
+
+/* HEADER */
+
+/*------------------------------------------------------*/
+
+.homepage {
+	margin-top: 20px;
+}
+
+header {
+	background-image: linear-gradient(rgba( 57, 28, 120, 0.93), rgba( 57, 28, 120, 0.93)), url('img/avatars.png');
+
+	height: 100vh;
+}
+
+
+.logo {
+	height: 50px;
+	width: auto;
+	float: left;
+	margin-top: 20px;
+}
+
+.main-nav {
+	float: right;
+	list-style: none;
+	margin-top: 34px;
+}
+
+.main-nav li {
+	display: inline-block;
+	margin-left: 40px;
+
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+	text-decoration: none;
+	padding: 8px 0;
+	color: #fff;
+	font-size: 90%;
+	text-transform: uppercase;
+	border-bottom: 1px solid transparent;
+	transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+	border-bottom: 1px solid #fa23a2;
+}
+
+header h1 {
+	text-align: center;
+}
+
+
+header .landing-paragraph {
+	text-align: justify;
+	margin-top: 30px;
+	line-height: 140%;
+	text-transform: capitalize;
+}
+
+
+header .welcome-text {
+	padding-right: 4%;
+}
+
+
+header .login-form {
+	padding-left: 6%;
+	padding-right: 5%;
+}
+
+.login-form .container {
+	height: 500px;
+	background-color: #fff;
+	color: #666;
+	box-shadow: 0px 0px 25px 5px rgb(51, 22, 117);
+	overflow: hidden;
+}
+
+
+.login-form .container .head {
+	border-bottom: 1px dashed rgb(57, 28, 120);
+}
+
+.login-form .container h3 {
+	margin: 0 50px;
+	padding: 30px 20px;
+	border-left: 1px dashed rgb(57, 28, 120);
+}
+
+.login-form .container #login-register-forgot {
+	height: 100%;
+	margin-left: 50px;
+	padding: 50px 50px 50px 20px;
+	border-left: 1px dashed rgb(57, 28, 120);
+
+}
+
+.login-form #signup-form,
+.login-form #forgot-pass-form {
+	display: none;
+	transition: display 0.2s ease-in-out;
+}
+
+.login-form #signin-form {
+	display: inherit;
+	transition: display 0.2s ease-in-out;
+}
+
+.login-form #forgot-pass,
+.login-form #forgot-pass:visited {
+	color: blue;
+}
