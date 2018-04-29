@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../vendors/css/grid.css">
+	<link rel="stylesheet" type="text/css" href="../vendors/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/pages.css">
+	<title>Add New Course</title>
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<div class="row">
+			<a href="#"><img class="logo" src="../resources/img/logo.png" alt="Question Logo" /></a>
+			<ul class="main-nav">
+				<li><a class="" href="settings.html"><i class="ion-android-options"></i> Settings</a></li>
+				<li><a class="" href="#"><i class="ion-power"></i> Sign Out</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation Bar -->
+
+	<!-- Main Page -->
+	<section class="pageContent">
+		<div class="row">
+
+			<div class="col span-3-of-12 sidebar">
+				<ul class="sidenav">
+					<li class="student"><a href="take-exam.html"><i class="ion-compose"></i> TAKE EXAM</a></li>
+					<li class="student"><a href="show-result.html"><i class="ion-printer"></i> SHOW RESULTS</a></li>
+					<li class="professor"><a href="add-exam.html"><i class="ion-android-add-circle"></i> ADD EXAM</a></li>
+					<li class="professor"><a href="stats.html"><i class="ion-podium"></i> STATS</a></li>
+					<li class="empolyee"><a href="add-student.html"><i class="ion-android-person-add"></i> ADD STUDENT</a></li>
+					<li class="empolyee sideactive"><a href="add-course.html"><i class="ion-android-add-circle"></i> ADD COURSE</a></li>
+				</ul>
+			</div>
+			<div class="col span-9-of-12 sectionContent">
+				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Course</h2>
+				<div id="courses-table">
+					<span>A list with courses you added</span>
+					<table class="table-scroll small-first-col text-center">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>COURSE NAME</th>
+								<th>MIDTERM</th>
+								<th>FINAL</th>
+								<th>EDIT</th>
+							</tr>
+						</thead>
+						<tbody class="body-half-screen">
+							<tr>
+								<td>1</td>
+								<td>Digital Design</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Database</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Microprocessor x8086</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Data Structures</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Algorithms</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+
+							<tr>
+								<td>5</td>
+								<td>Algorithms</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>Algorithms</td>
+								<td>50</td>
+								<td>100</td>
+								<td><a href="">edit</a></td>
+							</tr>
+						</tbody>
+					</table>
+					<a class="btn-primary add-course-btn">Add Course</a>
+				</div>
+				<div id="add-course">
+					<form id="courses-form" name="setting-form">
+						<input class="input-field" name="courseName" type="text" placeholder="Course Name" required/>
+						<input class="input-field" name="midterm" type="text" placeholder="Midterm Grades" required/>
+						<input class="input-field" name="final" type="text" placeholder="Final Grades" required/>
+						<input id="signup" class="btn-success" type="submit" value="Save Changes">
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="../resources/js/pages.js"></script>
+</body>
+
+</html>

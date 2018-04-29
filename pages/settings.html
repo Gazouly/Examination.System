@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../vendors/css/grid.css">
+	<link rel="stylesheet" type="text/css" href="../vendors/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/pages.css">
+	<title>Settings</title>
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<div class="row">
+			<a href="#"><img class="logo" src="../resources/img/logo.png" alt="Question Logo" /></a>
+			<ul class="main-nav">
+	
+				<li><a class="active" href="#"><i class="ion-android-options"></i> Settings</a></li>
+				<li><a class="" href="#"><i class="ion-power"></i> Sign Out</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation Bar -->
+
+	<!-- Setting Page -->
+	<section class="pageContent">
+		<div class="row">
+
+			<div class="col span-3-of-12 sidebar">
+				<ul class="sidenav">
+					<li class="student"><a href="take-exam.html"><i class="ion-compose"></i> TAKE EXAM</a></li>
+					<li class="student"><a href="show-result.html"><i class="ion-printer"></i> SHOW RESULTS</a></li>
+					<li class="professor"><a href="add-exam.html"><i class="ion-android-add-circle"></i> ADD EXAM</a></li>
+					<li class="professor"><a href="stats.html"><i class="ion-podium"></i> STATS</a></li>
+					<li class="empolyee"><a href="add-student.html"><i class="ion-android-person-add"></i> ADD STUDENT</a></li>
+					<li class="empolyee"><a href="add-course.html"><i class="ion-android-add-circle"></i> ADD COURSE</a>
+				</ul>
+			</div>
+			<div class="col span-9-of-12 sectionContent">
+				<h2 class="text-center"><i class="ion-android-options"></i> Settings</h2>
+				<form id="setting-form" name="setting-form">
+					<span class="form-label">Full Name</span>
+					<input class="input-field" type="text" value="Muhammad Magdy Muhammad Al-Gazouly" disabled/>
+					<span class="form-label">Email Address</span>
+					<input class="input-field" type="email" value="m.algazouly96@aswu.edu.eg" disabled/>
+					<span class="form-label">Password</span>
+					<input class="input-field" type="password" placeholder="Old Password" required/>
+					<input class="input-field" type="password" placeholder="New Password" required/>
+					<input class="input-field" type="password" placeholder="Confirm New Password" required/>
+					<input id="signup" class="btn-success" type="submit" value="Save Changes">
+				</form>
+			</div>
+		</div>
+	</section>
+	<!-- Setting Page -->
+</body>
+
+</html>

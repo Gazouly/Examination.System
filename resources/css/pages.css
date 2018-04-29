@@ -1,6 +1,26 @@
 body {
-	color:#391c78;
+	color: #391c78;
 }
+
+.sidebar {
+	background-color: #f5f5f5;
+	border: 1px solid #333;
+	position: fixed;
+	width: 20%;
+}
+
+.sectionContent {
+	background-color: #f5f5f5;
+	border: 1px solid #333;
+	margin-left: 25.35%;
+}
+
+.sectionContent h2 {
+	padding:20px;
+	color:#fff;
+	background-color: #391c78;
+}
+
 /*------------------------------------------------------*/
 
 /* NAVIGATION BAR */
@@ -30,8 +50,6 @@ body {
 .main-nav li a:visited {
 	color: #fff;
 	margin-top: 10px;
-	border-right: 1px solid #f1f1f1;
-	border-left: 1px solid #f1f1f1;
 	border-bottom: none;
 	padding: 21px;
 	font-weight: 400;
@@ -61,15 +79,62 @@ body {
 
 /*------------------------------------------------------*/
 
-.sidebar {
-	background-color: #f5f5f5;
-	border: 1px solid #333;
-	position: fixed;
-	width: 20%;
+.sidenav {
+	list-style: none;
 }
 
-.sectionContent {
-	height: 5000px;
-	border: 1px solid #333;
-	margin-left: 25.35%;
+.sidenav li {
+	padding: 20px;
+	background-color: inherit;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.sidenav li a:link,
+.sidenav li a:visited {
+	text-decoration: none;
+	padding: 20px;
+}
+
+.sidenav li:hover,
+.sideactive {
+	background-color: #462294!important;
+}
+
+.sidenav li:hover > a,
+.sideactive > a {
+	color: #fff!important;
+}
+
+/*------------------------------------------------------*/
+
+/* SETTINGS */
+
+/*------------------------------------------------------*/
+
+#setting-form {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+	margin-top: 30px;
+}
+
+
+/*------------------------------------------------------*/
+
+/* COURSES */
+
+/*------------------------------------------------------*/
+
+#courses-table {
+	width: 80%;
+	margin: 30px auto;
+}
+#courses-table a {
+	text-align: center;
+}
+
+#add-course {
+	width: 80%;
+	margin: 30px auto;
+	display: none;
 }
