@@ -93,6 +93,7 @@ body {
 .sidenav li a:visited {
 	text-decoration: none;
 	padding: 20px;
+	color:#391c78;
 }
 
 .sidenav li:hover,
