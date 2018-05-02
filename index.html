@@ -30,9 +30,9 @@
 						<h3 class="head-text">Sign In</h3>
 					</div>
 					<div id="login-register-forgot">
-						<form id="signin-form" name="signin-form">
-							<input class="input-field" type="email" placeholder="Email Address" required/>
-							<input class="input-field" type="password" placeholder="Password" required/>
+						<form id="signin-form" name="signin-form" action="http://127.0.0.1:3000" method="POST">
+							<input class="input-field" type="email" placeholder="Email Address" name="email" required/>
+							<input class="input-field" type="password" placeholder="Password" name="password" required/>
 							<input class="btn-primary sign-in" type="submit" value="Sign in">
 							<span class="text-center">A Staff Member or Empolyee?</span>
 							<input id="signup" class="btn-success" type="button" value="Register Now!">
