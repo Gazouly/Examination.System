@@ -40,83 +40,46 @@
 				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Course</h2>
 				<div id="courses-table">
 					<span>A list with courses you added</span>
-					<table class="table-scroll small-first-col text-center">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>COURSE NAME</th>
-								<th>MIDTERM</th>
-								<th>FINAL</th>
-								<th>EDIT</th>
-							</tr>
-						</thead>
-						<tbody class="body-half-screen">
-							<tr>
-								<td>1</td>
-								<td>Digital Design</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Database</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Microprocessor x8086</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Data Structures</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><a href="">edit</a></td>
-							</tr>
-						</tbody>
-					</table>
+					<!-- 
+						<thead><tr><th>ID</th> + <th>Course Name</th> + <th>Midterm</th> + <th>Final</th> + <th>Delete</th></tr></thead>
+					 -->
+					{${coursesTable}}
 					<a class="btn-primary add-course-btn">Add Course</a>
 				</div>
 				<div id="add-course">
-					<form id="courses-form" name="setting-form">
+					<form id="courses-form">
 						<input class="input-field" name="courseName" type="text" placeholder="Course Name" required/>
+						<select class="input-field" name="Department">
+								<option value="electrical">Electrical Engineering</option>
+								<option value="civil">Civil Engineering</option>
+								<option value="architectural">Architectural Engineering</option>
+						</select>
+						<select class="input-field" name="level">
+								<option value="1">Level 1</option>
+								<option value="2">Level 2</option>
+								<option value="3">Level 3</option>
+								<option value="3">Level 4</option>
+						</select>
 						<input class="input-field" name="midterm" type="text" placeholder="Midterm Grades" required/>
 						<input class="input-field" name="final" type="text" placeholder="Final Grades" required/>
-						<input id="signup" class="btn-success" type="submit" value="Save Changes">
+						<input id="signup" class="btn-success" type="submit" value="Add Course">
 					</form>
 				</div>
 			</div>
 		</div>
 	</section>
-	<script src="../resources/js/pages.js"></script>
+	<script>
+		/* ---------- COURSES PAGE ---------- */
+		var addCourseBtn = document.querySelector('.add-course-btn');
+
+		addCourseBtn.addEventListener('click', function() {
+			'use strict';
+			document.querySelector('#courses-table').style.display = "none";
+			document.querySelector('#add-course').style.display = "block";
+		});
+
+		/* ---------- COURSES PAGE ---------- */
+	</script>
 </body>
 
 </html>

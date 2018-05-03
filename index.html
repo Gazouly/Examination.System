@@ -30,9 +30,9 @@
 						<h3 class="head-text">Sign In</h3>
 					</div>
 					<div id="login-register-forgot">
-						<form id="signin-form" name="signin-form" action="http://127.0.0.1:3000" method="POST">
-							<input class="input-field" type="email" placeholder="Email Address" name="email" required/>
-							<input class="input-field" type="password" placeholder="Password" name="password" required/>
+						<form id="signin-form" name="signin-form">
+							<input class="input-field" type="email" placeholder="Email Address" required/>
+							<input class="input-field" type="password" placeholder="Password" required/>
 							<input class="btn-primary sign-in" type="submit" value="Sign in">
 							<span class="text-center">A Staff Member or Empolyee?</span>
 							<input id="signup" class="btn-success" type="button" value="Register Now!">
@@ -40,10 +40,20 @@
 						</form>
 						<form id="signup-form" name="signup-form">
 							<input class="input-field" name="Rname" type="text" placeholder="Full Name" required/>
-							<input class="input-field" name="Rssn" type="text" placeholder="SSN" required/>
+							<input class="input-field half" name="Rssn" type="text" placeholder="SSN" required/>
+							<select class="input-field half" name="title">
+								<option value="prof">Prof</option>
+								<option value="dr">Dr</option>
+								<option value="empolyee">Empolyee</option>
+							</select>
 							<input class="input-field" name="Remail" type="email" placeholder="Email Address" required/>
 							<input class="input-field" name="Rpassword" type="password" placeholder="Password" required/>
-							<input class="input-field" name="Rcpassword" type="password" placeholder="Confirm Password" required/>
+							<select class="input-field" name ="Department" >
+								<option value="electrical">Electrical Engineering</option>
+								<option value="civil">Civil Engineering</option>
+								<option value="architectural">Architectural Engineering</option>
+								<option value="empolyee">None - Empolyee</option>
+							</select>
 							<input id="register" class="btn-success" type="submit" value="Register">
 						</form>
 
