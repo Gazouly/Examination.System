@@ -37,10 +37,76 @@
 				</ul>
 			</div>
 			<div class="col span-9-of-12 sectionContent">
-				<h2 class="text-center"><i class="ion-android-person-add"></i> Add a New Student</h2>
+				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Student</h2>
+				<div id="students-table">
+					<span>A list with students you added</span>
+					<table class="table-scroll small-first-col text-center">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>STUDENT NAME</th>
+								<th>EMAIL</th>
+								<th></th>
+								<th>EDIT</th>
+							</tr>
+						</thead>
+						<tbody class="body-half-screen">
+							<tr>
+								<td>1</td>
+								<td>Gazouly</td>
+								<td>algazouly@aswu.edu.eg</td>
+								<td></td>
+								<td><input class="btn-danger" type="submit" value="Delete"></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Hamdy</td>
+								<td>hamdy@aswu.edu.eg</td>
+								<td></td>
+								<td><input class="btn-danger" type="submit" value="Delete"></td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>Abdel-Rahman</td>
+								<td>abdo@aswu.edu.eg</td>
+								<td></td>
+								<td><input class="btn-danger" type="submit" value="Delete"></td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>Hossam</td>
+								<td>hossam@aswu.edu.eg</td>
+								<td></td>
+								<td><input class="btn-danger" type="submit" value="Delete"></td>
+							</tr>
+						</tbody>
+					</table>
+					<a class="btn-primary add-student-btn">Add Student</a>
+				</div>
+				<div id="add-student">
+					<form id="students-form">
+						<input class="input-field" name="studentName" type="text" placeholder="Student Name" required/>
+						<input class="input-field" name="studentSSN" type="text" placeholder="Student SSN" required/>
+						<select class="input-field" name="Department">
+								<option value="electrical">Electrical Engineering</option>
+								<option value="civil">Civil Engineering</option>
+								<option value="architectural">Architectural Engineering</option>
+						</select>
+						<select class="input-field" name="level">
+								<option value="1">Level 1</option>
+								<option value="2">Level 2</option>
+								<option value="3">Level 3</option>
+								<option value="3">Level 4</option>
+						</select>
+						<input class="input-field" name="studentUsername" type="text" placeholder="Username" required/>
+						<input class="input-field" name="studentUsername" type="password" placeholder="Password" required/>
+						<input class="btn-success" type="submit" value="Add Course">
+					</form>
+				</div>
 			</div>
 		</div>
 	</section>
+<!--	<script src="../resources/js/pages.js"></script>-->
 </body>
 
 </html>

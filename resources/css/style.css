@@ -94,7 +94,7 @@ h1 {
 
 .input-field,
 .btn-primary,
-.btn-success {
+.btn-success, .btn-danger {
 	display: block;
 	width: 100%;
 	padding: .375rem .75rem;
@@ -117,11 +117,18 @@ h1 {
 	color: #391c78;
 }
 
+.input-field.half {
+	display: inline;
+	width: 48%!important;
+	float: left;
+	margin-right: 2%;
+}
+
 /* ---------- TABLE ---------- */
 
 td {
-  text-align: center;
-  vertical-align: middle;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .table-scroll {
@@ -187,8 +194,11 @@ td {
 
 /* ---------- BUTTON ---------- */
 
+
+
 .btn-primary,
-.btn-success {
+.btn-success,
+.btn-danger {
 	cursor: pointer;
 	background-color: #622eff;
 	color: #fff;
@@ -210,6 +220,16 @@ td {
 
 .btn-success:hover {
 	background-color: #49a312;
+
+}
+
+.btn-danger {
+	transition: background-color .2s ease-in-out;
+	background-color: #d30d18;
+}
+
+.btn-danger:hover {
+	background-color: #b30b14;
 
 }
 

@@ -122,19 +122,19 @@ body {
 
 /*------------------------------------------------------*/
 
-/* COURSES */
+/* COURSES & STUDENTS */
 
 /*------------------------------------------------------*/
 
-#courses-table {
+#courses-table, #students-table {
 	width: 80%;
 	margin: 30px auto;
 }
-#courses-table a {
+#courses-table a,  #students-table a{
 	text-align: center;
 }
 
-#add-course {
+#add-course, #edit-course, #add-student{
 	width: 80%;
 	margin: 30px auto;
 	display: none;
