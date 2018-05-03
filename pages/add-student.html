@@ -40,47 +40,10 @@
 				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Student</h2>
 				<div id="students-table">
 					<span>A list with students you added</span>
-					<table class="table-scroll small-first-col text-center">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>STUDENT NAME</th>
-								<th>EMAIL</th>
-								<th></th>
-								<th>EDIT</th>
-							</tr>
-						</thead>
-						<tbody class="body-half-screen">
-							<tr>
-								<td>1</td>
-								<td>Gazouly</td>
-								<td>algazouly@aswu.edu.eg</td>
-								<td></td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Hamdy</td>
-								<td>hamdy@aswu.edu.eg</td>
-								<td></td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Abdel-Rahman</td>
-								<td>abdo@aswu.edu.eg</td>
-								<td></td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Hossam</td>
-								<td>hossam@aswu.edu.eg</td>
-								<td></td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-						</tbody>
-					</table>
+					<!-- 
+						<thead><tr><th>(i+1)</th> + <th>STUDENT NAME</th> + <th>EMAIL</th> + <th></th> + <th>Delete</th></tr></thead>
+					 -->
+					{${studentsTable}}
 					<a class="btn-primary add-student-btn">Add Student</a>
 				</div>
 				<div id="add-student">
@@ -106,7 +69,18 @@
 			</div>
 		</div>
 	</section>
-<!--	<script src="../resources/js/pages.js"></script>-->
+	<script>
+		/* ---------- STUDENT PAGE ---------- */
+
+		var addStudentBtn = document.querySelector('.add-student-btn');
+
+		addStudentBtn.addEventListener('click', function() {
+			'use strict';
+			document.querySelector('#students-table').style.display = "none";
+			document.querySelector('#add-student').style.display = "block";
+		});
+		/* ---------- STUDENT PAGE ---------- */
+	</script>
 </body>
 
 </html>

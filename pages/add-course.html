@@ -40,69 +40,10 @@
 				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Course</h2>
 				<div id="courses-table">
 					<span>A list with courses you added</span>
-					<table class="table-scroll small-first-col text-center">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>COURSE NAME</th>
-								<th>MIDTERM</th>
-								<th>FINAL</th>
-								<th>DELETE</th>
-							</tr>
-						</thead>
-						<tbody class="body-half-screen">
-							<tr>
-								<td>1</td>
-								<td>Digital Design</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Database</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>3</td>
-								<td>Microprocessor x8086</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>4</td>
-								<td>Data Structures</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-							<tr>
-								<td>5</td>
-								<td>Algorithms</td>
-								<td>50</td>
-								<td>100</td>
-								<td><input class="btn-danger" type="submit" value="Delete"></td>
-							</tr>
-						</tbody>
-					</table>
+					<!-- 
+						<thead><tr><th>ID</th> + <th>Course Name</th> + <th>Midterm</th> + <th>Final</th> + <th>Delete</th></tr></thead>
+					 -->
+					{${coursesTable}}
 					<a class="btn-primary add-course-btn">Add Course</a>
 				</div>
 				<div id="add-course">
@@ -127,7 +68,18 @@
 			</div>
 		</div>
 	</section>
-	<script src="../resources/js/pages.js"></script>
+	<script>
+		/* ---------- COURSES PAGE ---------- */
+		var addCourseBtn = document.querySelector('.add-course-btn');
+
+		addCourseBtn.addEventListener('click', function() {
+			'use strict';
+			document.querySelector('#courses-table').style.display = "none";
+			document.querySelector('#add-course').style.display = "block";
+		});
+
+		/* ---------- COURSES PAGE ---------- */
+	</script>
 </body>
 
 </html>

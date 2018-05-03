@@ -200,7 +200,7 @@ td {
 .btn-success,
 .btn-danger {
 	cursor: pointer;
-	background-color: #622eff;
+	background-color: #462294;
 	color: #fff;
 	font-size: 90%;
 	padding-top: .5rem;
@@ -210,7 +210,7 @@ td {
 }
 
 .btn-primary:hover {
-	background-color: #551dff;
+	background-color: #391c78;
 }
 
 .btn-success {

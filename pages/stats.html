@@ -38,9 +38,35 @@
 			</div>
 			<div class="col span-9-of-12 sectionContent">
 				<h2 class="text-center"><i class="ion-podium"></i> Stats</h2>
+				<div id="show-stats">
+					<span>Select the course you want its stats: </span>
+					<select class="input-field" name="courses">
+								<option value="circuits">Circuits</option>
+								<option value="steel">Steel</option>
+						</select>
+					<button class="btn-primary show-stats">Show Stats</button>
+				</div>
+				<div id="stats-table">
+					<!-- 
+						<thead><tr><th>(i+1)</th> + <th>STUDENT NAME</th> + <th>GRADE</th></tr></thead>
+					 -->
+					{${statsTable}}
+
+				</div>
 			</div>
 		</div>
 	</section>
+	<script>
+		/* ---------- STATS PAGE ---------- */
+		var showStatsBtn = document.querySelector('.show-stats');
+
+		showStatsBtn.addEventListener('click', function() {
+			'use strict';
+			document.querySelector('#stats-table').style.display = "block";
+		});
+
+		/* ---------- STATS PAGE ---------- */
+	</script>
 </body>
 
 </html>
