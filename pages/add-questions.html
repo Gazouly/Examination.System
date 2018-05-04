@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="../vendors/css/grid.css">
+	<link rel="stylesheet" type="text/css" href="../vendors/css/ionicons.min.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../resources/css/pages.css">
+	<title>Add New Questions
+	</title>
+</head>
+
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar">
+		<div class="row">
+			<a href="#"><img class="logo" src="../resources/img/logo.png" alt="Question Logo" /></a>
+			<ul class="main-nav">
+				<li><a class="" href="settings.html"><i class="ion-android-options"></i> Settings</a></li>
+				<li><a class="" href="#"><i class="ion-power"></i> Sign Out</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation Bar -->
+
+	<!-- Main Page -->
+	<section class="pageContent">
+		<div class="row">
+
+			<div class="col span-3-of-12 sidebar">
+				<ul class="sidenav">
+					<li class="student"><a href="take-exam.html"><i class="ion-compose"></i> TAKE EXAM</a></li>
+					<li class="student"><a href="show-result.html"><i class="ion-printer"></i> SHOW RESULTS</a></li>
+					<li class="professor sideactive"><a href="add-questions.html"><i class="ion-help-circled"></i> ADD QUESTIONS</a></li>
+					<li class="professor"><a href="new-exam.html"><i class="ion-android-add-circle"></i> ADD EXAM</a></li>
+					<li class="professor"><a href="stats.html"><i class="ion-podium"></i> STATS</a></li>
+					<li class="empolyee"><a href="add-student.html"><i class="ion-android-person-add"></i> ADD STUDENT</a></li>
+					<li class="empolyee"><a href="add-course.html"><i class="ion-android-add-circle"></i> ADD COURSE</a></li>
+				</ul>
+			</div>
+			<div class="col span-9-of-12 sectionContent">
+				<h2 class="text-center"><i class="ion-help-circled"></i> Add a New Questions</h2>
+				<form name="select-course-form" id="select-course-form">
+					<div id="select-course">
+						<span class="form-label">Select the course you want to add questions in it: </span>
+						<select class="input-field" name="courses">
+								<option value="circuits">Circuits</option>
+								<option value="steel">Steel</option>
+					</select>
+						<input class="input-field" name="questionsNo" type="text" placeholder="No. Of Questions" required />
+						<button class="btn-primary add-questions">Add Questions</button>
+					</div>
+				</form>
+				<div id="questions">
+					<form id="questions-form">
+						<div id="question-details">
+							<span class="form-label">Question Type</span>
+							<select class="input-field question-type" name="question-type">
+								<option value="mcq">Multiple Choices</option>
+								<option value="tof">True or False</option>
+								<option value="complete">Complete</option>
+							</select>
+							<span class="form-label">Question: </span>
+							<input class="input-field" name="questionsNo" type="text" placeholder="Question #1" required />
+							<span class="form-label">The Answers: </span>
+							<input class="input-field ans" name="q1correct" type="text" placeholder="The Correct Answer" required />
+							<input class="input-field ans" name="q1rngans1" type="text" placeholder="Wrong Answer #1" required />
+							<input class="input-field ans" name="q1rngans2" type="text" placeholder="Wrong Answer #2" required />
+							<input class="input-field ans" name="q1rngans3" type="text" placeholder="Wrong Answer #3" required />
+						</div>
+						<input class="btn-success" type="submit" value="Save Exam" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+		function validate() {
+			var x = document.forms['select-course-form']['questionsNo'].value;
+			if (x == "") {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		var questionType = document.querySelector('.question-type');
+		questionType.addEventListener('change', function() {
+			if (questionType.options[1].selected || questionType.options[2].selected) {
+				document.getElementsByClassName('ans')[0].style.display = "block";
+				document.getElementsByClassName('ans')[1].style.display = "none";
+				document.getElementsByClassName('ans')[2].style.display = "none";
+				document.getElementsByClassName('ans')[3].style.display = "none";
+			}
+			if (questionType.options[0].selected) {
+				document.getElementsByClassName('ans')[0].style.display = "block";
+				document.getElementsByClassName('ans')[1].style.display = "block";
+				document.getElementsByClassName('ans')[2].style.display = "block";
+				document.getElementsByClassName('ans')[3].style.display = "block";
+			}
+		});
+
+		var addQuestionsBtn = document.querySelector('.add-questions');
+
+		addQuestionsBtn.addEventListener('click', function() {
+			'use strict';
+			// Prevent Form From Submitting
+			document.querySelector('#select-course-form').onsubmit = function(e) {
+				e.preventDefault();
+			}
+			// Displaying Questions Fields
+			if (validate()) {
+				document.querySelector('#questions').style.display = "block";
+			}
+		});
+	</script>
+</body>
+
+</html>
