@@ -1,9 +1,68 @@
+var pool = require('../utilities/database');
+
+function checkPage(req, res, data) {
+    if (req.url === "/add-student.html") {
+        sql = "Select Name, Email from student ";
+    } else if (req.url === "/add-course.html") {
+        sql = "Select Course_ID, Course_name, Midterm_degree, Final_degree from course ";
+    }
+
+    function setResHtml(sql, cb) {
+        pool.getConnection((err, con) => {
+            if (err) throw err;
+            con.query(sql, (err, res, cols) => {
+                if (err) throw err;
+
+                var table = ''; //to store html table
+
+                //create html table with data from res.
+                if (req.url === "/settings.html") {
+                } else if (req.url === "/show-result.html") {
+
+                } else if (req.url === "/take-exam.html") {
+
+                } else if (req.url === "/show-result.html") {
+
+                } else if (req.url === "/add-exam.html") {
+
+                } else if (req.url === "/stats.html") {
+
+                } else if (req.url === "/add-student.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        table += '<tr><td>' + (i + 1) + '</td><td>' + res[i].Name + '</td><td>' + res[i].Email + '</td><td><input class="btn-danger" type="submit" value="Delete"></td></tr>';
+                    }
+                    table = '<table class="table-scroll small-first-col text-center"><thead><tr><th>No.</th><th>Name</th><th>Email</th><th>Delete</th></tr><thead><tbody class="body-half-screen">' + table + '</tbody></table>';
+                    data = data.replace('{${studentsTable}}', table);
+                } else if (req.url === "/add-course.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        table += '<tr><td>' + res[i].Course_ID + '</td><td>' + res[i].Course_name + '</td><td>' + res[i].Midterm_degree + '</td><td>' + res[i].Final_degree + '</td><td><input class="btn-danger" type="submit" value="Delete"></td></tr>';
+                    }
+                    table = '<table class="table-scroll small-first-col text-center"><thead><tr><th>ID</th><th>Course Name</th><th>Midterm</th><th>Final</th><th>Delete</th></tr><thead><tbody class="body-half-screen">' + table + '</tbody></table>';
+                    data = data.replace('{${coursesTable}}', table);
+                }
+
+                con.release(); //Done with mysql connection
+
+                return cb();
+            });
+        });
+    }
+    setResHtml(sql, resql => {
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.write(data, 'utf-8');
+        res.end();
+    });
+}
+
 function checkExtension(req, res, fs, path) {
-    if (req.url === "/") {
-        fs.readFile(path.join(__dirname, '..', 'pages', 'settings.html'), 'UTF-8', function (err, data) {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
-            console.log(data);
+    if (req.url.match("\.html$")) {
+        fs.readFile(path.join(__dirname, '..', 'pages', req.url), 'UTF-8', function (err, data) {
+            //res.writeHead(200, { 'Content-Type': 'text/html' });
+            //sets and returns html table with results from sql select
+            //Receives sql query and callback function to return the table
+            checkPage(req, res, data);
+
+            // console.log(data);
         });
     } else if (req.url.match("\.css$")) {
         console.log("CSS");
