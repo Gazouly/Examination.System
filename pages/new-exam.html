@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="../vendors/css/ionicons.min.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/style.css">
 	<link rel="stylesheet" type="text/css" href="../resources/css/pages.css">
-	<title>Stats</title>
+	<title>Add New Exam</title>
 </head>
 
 <body>
@@ -31,43 +31,29 @@
 					<li class="student"><a href="take-exam.html"><i class="ion-compose"></i> TAKE EXAM</a></li>
 					<li class="student"><a href="show-result.html"><i class="ion-printer"></i> SHOW RESULTS</a></li>
 					<li class="professor"><a href="add-questions.html"><i class="ion-help-circled"></i> ADD QUESTIONS</a></li>
-					<li class="professor"><a href="new-exam.html"><i class="ion-android-add-circle"></i> ADD EXAM</a></li>
-					<li class="professor sideactive"><a href="stats.html"><i class="ion-podium"></i> STATS</a></li>
+					<li class="professor sideactive"><a href="new-exam.html"><i class="ion-android-add-circle"></i> ADD EXAM</a></li>
+					<li class="professor"><a href="stats.html"><i class="ion-podium"></i> STATS</a></li>
 					<li class="empolyee"><a href="add-student.html"><i class="ion-android-person-add"></i> ADD STUDENT</a></li>
 					<li class="empolyee"><a href="add-course.html"><i class="ion-android-add-circle"></i> ADD COURSE</a></li>
 				</ul>
 			</div>
 			<div class="col span-9-of-12 sectionContent">
-				<h2 class="text-center"><i class="ion-podium"></i> Stats</h2>
-				<div id="show-stats">
-					<span class="form-label">Select the course you want its stats: </span>
-					<select class="input-field" name="courses">
+				<h2 class="text-center"><i class="ion-android-add-circle"></i> Add a New Exam</h2>
+				<form name="select-course-form" id="select-course-form">
+					<div id="select-course">
+						<span class="form-label">Select the course you want to add exam in it: </span>
+						<select class="input-field" name="courses">
 								<option value="circuits">Circuits</option>
 								<option value="steel">Steel</option>
-						</select>
-					<button class="btn-primary show-stats">Show Stats</button>
-				</div>
-				<div id="stats-table">
-					<!-- 
-						<thead><tr><th>(i+1)</th> + <th>STUDENT NAME</th> + <th>GRADE</th></tr></thead>
-					 -->
-					{${statsTable}}
-
-				</div>
+					</select>
+						<input class="input-field" name="time" type="text" placeholder="Time in Minutes" required />
+						<input class="input-field" name="grade" type="text" placeholder="Exam Grade" required />
+						<button class="btn-primary add-questions">Add Exam</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>
-	<script>
-		/* ---------- STATS PAGE ---------- */
-		var showStatsBtn = document.querySelector('.show-stats');
-
-		showStatsBtn.addEventListener('click', function() {
-			'use strict';
-			document.querySelector('#stats-table').style.display = "block";
-		});
-
-		/* ---------- STATS PAGE ---------- */
-	</script>
 </body>
 
 </html>

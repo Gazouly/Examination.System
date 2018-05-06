@@ -3,10 +3,12 @@ body {
 }
 
 .sidebar {
-	background-color: #f5f5f5;
-	border: 1px solid #333;
 	position: fixed;
 	width: 20%;
+}
+.sidebar ul {
+		background-color: #f5f5f5;
+	border: 1px solid #333;
 }
 
 .sectionContent {
@@ -16,8 +18,8 @@ body {
 }
 
 .sectionContent h2 {
-	padding:20px;
-	color:#fff;
+	padding: 20px;
+	color: #fff;
 	background-color: #391c78;
 }
 
@@ -93,7 +95,7 @@ body {
 .sidenav li a:visited {
 	text-decoration: none;
 	padding: 20px;
-	color:#391c78;
+	color: #391c78;
 }
 
 .sidenav li:hover,
@@ -126,15 +128,20 @@ body {
 
 /*------------------------------------------------------*/
 
-#courses-table, #students-table {
+#courses-table,
+#students-table {
 	width: 80%;
 	margin: 30px auto;
 }
-#courses-table a,  #students-table a{
+
+#courses-table a,
+#students-table a {
 	text-align: center;
 }
 
-#add-course, #edit-course, #add-student{
+#add-course,
+#edit-course,
+#add-student {
 	width: 80%;
 	margin: 30px auto;
 	display: none;
@@ -144,24 +151,61 @@ body {
 
 /*------------------------------------------------------*/
 
-/* STATS */
+/* STATS & SHOW RESULTS*/
 
 /*------------------------------------------------------*/
 
-
-
-#show-stats, #stats-table{
+#show-stats,
+#stats-table {
 	width: 80%;
 	margin: 30px auto;
 }
 
 
 #stats-table {
-	display:none;
+	display: none;
+}
+
+#show-result,
+#result-table {
+	width: 80%;
+	margin: 30px auto;
 }
 
 
+#result-table {
+	display: none;
+}
 
+
+/*------------------------------------------------------*/
+
+/* ADD EXAM*/
+
+/*------------------------------------------------------*/
+
+#select-course, #questions {
+	width: 80%;
+	margin: 30px auto;
+}
+#questions {
+	display: none;
+}
+
+/*------------------------------------------------------*/
+
+/* TAKE EXAM*/
+
+/*------------------------------------------------------*/
+
+#select-exam-form, #exam {
+	width: 80%;
+	margin: 30px auto;
+}
+
+#exam {
+	display: none;
+}
 
 
 
