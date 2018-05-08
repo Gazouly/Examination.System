@@ -48,23 +48,23 @@
 					<a class="btn-primary add-student-btn">Add Student</a>
 				</div>
 				<div id="add-student">
-					<form id="students-form">
+					<form id="students-form" method='post'>
 						<input class="input-field" name="studentName" type="text" placeholder="Student Name" required/>
 						<input class="input-field" name="studentSSN" type="text" placeholder="Student SSN" required/>
 						<select class="input-field" name="Department">
-								<option value="electrical">Electrical Engineering</option>
-								<option value="civil">Civil Engineering</option>
-								<option value="architectural">Architectural Engineering</option>
+								<option value="1">Electrical Engineering</option>
+								<option value="2">Civil Engineering</option>
+								<option value="3">Architectural Engineering</option>
 						</select>
 						<select class="input-field" name="level">
 								<option value="1">Level 1</option>
 								<option value="2">Level 2</option>
 								<option value="3">Level 3</option>
-								<option value="3">Level 4</option>
+								<option value="4">Level 4</option>
 						</select>
-						<input class="input-field" name="studentUsername" type="text" placeholder="Username" required/>
-						<input class="input-field" name="studentUsername" type="password" placeholder="Password" required/>
-						<input class="btn-success" type="submit" value="Add Course">
+						<input class="input-field" name="studentEmail" type="text" placeholder="Email Address" required/>
+						<input class="input-field" name="studentPassword" type="password" placeholder="Password" required/>
+						<input class="btn-success" type="button" value="Add Student" onclick="add(this)">
 					</form>
 				</div>
 			</div>
@@ -79,9 +79,32 @@
 			'use strict';
 			document.querySelector('#students-table').style.display = "none";
 			document.querySelector('#add-student').style.display = "block";
-		});
-		/* ---------- STUDENT PAGE ---------- */
+        });
+        
+        function del(x) {
+            var deleteSSN = x.name;
+            console.log(deleteSSN);
+            sql = "delete_from_student_where_SSN_=" + deleteSSN;
+            x.form.action = "http://127.0.0.1:3000/" + sql + ".del";  
+            console.log(x.form.action);
+            x.form.submit();
+        }
+        function add(x) {
+            var form = x.form;
+            var sName = form.studentName.value, 
+            sSSN = form.studentSSN.value,
+            sDepartment = form.Department.options[form.Department.selectedIndex].value,
+            sLevel = form.level.options[form.level.selectedIndex].value,
+            sMail = form.studentEmail.value,
+            sPassword = form.studentPassword.value;
+
+            sql = "insert_into_student_VALUES_('" + sSSN + "','" + sName + "','" + sDepartment + "','" + sMail + "','" + sPassword + "','" + sLevel + "')";
+            x.form.action = "http://127.0.0.1:3000/" + sql + ".add";  
+            x.form.submit();
+        }
+        /* ---------- STUDENT PAGE ---------- */
 	</script>
 </body>
 
 </html>
+

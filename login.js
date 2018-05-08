@@ -10,6 +10,7 @@ server = http.createServer(function (req, res) {
         console.log("POST");
         var body = '';
         if (req.url === "/settings.html") {
+            console.log("seetings");
             req.on('data', function (data) {
                 body += data;
                 var post = qs.parse(body);
@@ -30,9 +31,12 @@ server = http.createServer(function (req, res) {
                     con.release();
                 });
             });
-        } else if (req.url === "/take-exam.html" || req.url === "/show-result.html" || req.url === "/add-exam.html" || req.url === "/stats.html" || req.url === "/add-student.html" || req.url === "/add-course.html") {
+        } else if (req.url === "/take-exam.html" || req.url === "/show-result.html" || req.url === "/add-exam.html" || req.url === "/stats.html" || req.url === "/add-student.html" || req.url === "/add-course.html" || req.url.match("\.del$") || req.url.match("\.add$")) {
+            console.log("not settings");
             checkExtension(req, res, fs, path);
         } else {
+            console.log(req.url);
+            console.log("error");
             html = "<html><h3>Page not found</h3></html>";
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(html);

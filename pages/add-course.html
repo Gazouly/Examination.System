@@ -78,7 +78,14 @@
 			document.querySelector('#courses-table').style.display = "none";
 			document.querySelector('#add-course').style.display = "block";
 		});
-
+        function del(x) {
+            var delete_id = x.name;
+            console.log(delete_id);
+            sql = "delete_from_course_where_Course_ID_=" + delete_id;
+            x.form.action = "http://127.0.0.1:3000/" + sql + ".del";  
+            console.log(x.form.action);
+            x.form.submit();
+        }
 		/* ---------- COURSES PAGE ---------- */
 	</script>
 </body>
