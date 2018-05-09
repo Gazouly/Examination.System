@@ -41,20 +41,20 @@
 						<form id="signup-form" name="signup-form" action="http://127.0.0.1:3000/signup" method="POST">
 							<input class="input-field" name="Rname" type="text" placeholder="Full Name" required/>
 							<input class="input-field half" name="Rssn" type="text" placeholder="SSN" required/>
-							<select class="input-field half" name="title">
+							<select class="input-field half" name="Rtitle">
 								<option value="prof">Prof</option>
 								<option value="dr">Dr</option>
 								<option value="empolyee">Empolyee</option>
 							</select>
 							<input class="input-field" name="Remail" type="email" placeholder="Email Address" required/>
 							<input class="input-field" name="Rpassword" type="password" placeholder="Password" required/>
-							<select class="input-field" name ="Department" >
-								<option value="electrical">Electrical Engineering</option>
-								<option value="civil">Civil Engineering</option>
-								<option value="architectural">Architectural Engineering</option>
-								<option value="empolyee">None - Empolyee</option>
+							<select class="input-field" name="RDepartment">
+								<option value="1">Electrical Engineering</option>
+								<option value="2">Civil Engineering</option>
+								<option value="3">Architectural Engineering</option>
+								<option value="4">None - Empolyee</option>
 							</select>
-							<input id="register" class="btn-success" type="submit" value="Register">
+							<input id="register" class="btn-success" type="submit" value="Register" onclick="add(this)">
 						</form>
 
 						<form id="forgot-pass-form" name="forgot-pass-form">
@@ -68,6 +68,25 @@
 	</header>
 	<!-- HEADER -->
 	<script src="resources/js/script.js"></script>
+	<script>
+		function add(x) {
+			var form = x.form;
+			var rName = form.Rname.value,
+				rSSN = form.Rssn.value,
+				rTitle = form.Rtitle.options[form.Rtitle.selectedIndex].value,
+				rMail = form.Remail.value,
+				rPassword = form.Rpassword.value,
+				rDepartment = form.RDepartment.options[form.RDepartment.selectedIndex].value;
+
+			if (rDepartment == "4") {
+				sql = "INSERT_INTO_EMPLOYEE_VALUES_('" + rSSN + "','" + rName + "','" + rMail + "','" + rPassword + "')";
+			} else {
+				sql = "INSERT_INTO_STAFF_VALUES_('" + rSSN + "','" + rName + "','" + rDepartment + "','" + rTitle + "','" + rMail + "','" + rPassword + "')";
+			}
+
+			x.form.action = "http://127.0.0.1:3000/" + sql + ".add";
+		}
+	</script>
 </body>
 
 </html>

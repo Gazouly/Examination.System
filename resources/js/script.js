@@ -25,17 +25,16 @@ signupBtn.addEventListener('click', function () {
 	document.querySelector('.head-text').innerHTML = "Sign Up";
 });
 
-registerBtn.addEventListener('click', function () {
-	'use strict';
-	var x = document.forms["signup-form"]["Remail"].value,
-		y = document.forms["signup-form"]["Rpassword"].value,
-		z = document.forms["signup-form"]["Rcpassword"].value;
-	if (ValidateEmail(x) && y !== "" && z !== "") {
-		signinForm.style.display = "block";
-		signupForm.style.display = "none";
-		document.querySelector('.head-text').innerHTML = "Sign In";
-	}
-});
+//registerBtn.addEventListener('click', function () {
+//	'use strict';
+//	var x = document.forms["signup-form"]["Remail"].value,
+//		y = document.forms["signup-form"]["Rpassword"].value;
+//	if (ValidateEmail(x) && y !== "") {
+//		signinForm.style.display = "block";
+//		signupForm.style.display = "none";
+//		document.querySelector('.head-text').innerHTML = "Sign In";
+//	}
+//});
 
 forgotPasswordBtn.addEventListener('click', function () {
 	'use strict';

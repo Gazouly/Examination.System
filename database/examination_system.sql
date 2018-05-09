@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2018 at 11:28 PM
+-- Generation Time: May 09, 2018 at 02:09 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -46,11 +46,7 @@ INSERT INTO `course` (`Course_ID`, `Course_name`, `Dept_ID`, `Level`, `Midterm_d
 (2, 'Field', 1, '2nd grade', 50, 100),
 (3, 'Electronics', 1, '2nd grade', 50, 100),
 (4, 'Strcuture', 2, '2nd grade', 50, 100),
-(5, 'Steel', 2, '2nd grade', 50, 100),
-(6, 'Machinery', 2, '2nd grade', 50, 100),
-(7, 'arch design', 3, '2nd grade', 50, 100),
-(8, 'arch design 2', 3, '2nd grade', 50, 100),
-(9, 'arch design3', 3, '2nd grade', 50, 100);
+(5, 'Steel', 2, '2nd grade', 50, 100);
 
 -- --------------------------------------------------------
 
@@ -109,19 +105,17 @@ CREATE TABLE `q_bank` (
   `Q_Ans2` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `Q_Ans3` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
   `Q_Ans4` varchar(15) CHARACTER SET utf8 DEFAULT NULL,
-  `Course_ID` int(11) NOT NULL,
-  `Staff_SSN` varchar(14) CHARACTER SET utf8 NOT NULL,
-  `Dept_ID` int(11) NOT NULL
+  `Course_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `q_bank`
 --
 
-INSERT INTO `q_bank` (`Q_ID`, `Q_type`, `Question`, `correct answer`, `Q_Ans1`, `Q_Ans2`, `Q_Ans3`, `Q_Ans4`, `Course_ID`, `Staff_SSN`, `Dept_ID`) VALUES
-(1, 'mcq', 'magnetic field is ....... field', 'electric', 'electric', 'force', 'both', 'none', 2, '96384179165815', 1),
-(2, 'TOF', 'Is short circuit bad', 'true', 'true', NULL, NULL, NULL, 1, '95874586321869', 1),
-(3, 'complete', 'The sum of voltages in close loop equals ......', 'zero', 'zero', NULL, NULL, NULL, 1, '96384179165815', 1);
+INSERT INTO `q_bank` (`Q_ID`, `Q_type`, `Question`, `correct answer`, `Q_Ans1`, `Q_Ans2`, `Q_Ans3`, `Q_Ans4`, `Course_ID`) VALUES
+(1, 'mcq', 'magnetic field is ....... field', 'electric', 'electric', 'force', 'both', 'none', 2),
+(2, 'TOF', 'Is short circuit bad', 'true', 'true', NULL, NULL, NULL, 1),
+(3, 'complete', 'The sum of voltages in close loop equals ......', 'zero', 'zero', NULL, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -169,9 +163,10 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`SSN`, `Name`, `Dept_ID`, `Email`, `Password`, `Level`) VALUES
-('14523698547512', 'hosam ahmed', 3, 'hosamahmed@gmail.com', '89412584532', '2nd grade'),
-('59865742315826', 'ahemd hosam', 1, 'ahemdhosam@gmail.com', '87492161', '2nd grade'),
-('98547621584236', 'mohamed ahemd', 2, 'mohamedahemd@gmail.com', '84651120', '2nd grade');
+('01234567890123', 'Ahmed Hamdy', 1, 'Hamdimn54@gmail.com', '123456789A', '3'),
+('12345678965432', 'Mohammed', 1, 'm.algazouly@gmail.com', '123456789G', '3'),
+('12365412365402', 'Hossam', 1, 'hossam@gmail.com', '123456789H', '3'),
+('32165498765412', 'Abdo', 2, 'abdo@gmail.com', '123456789mm', '4');
 
 --
 -- Indexes for dumped tables
@@ -207,9 +202,7 @@ ALTER TABLE `q_bank`
   ADD UNIQUE KEY `Q_ID` (`Q_ID`),
   ADD UNIQUE KEY `Question` (`Question`),
   ADD KEY `Course_ID` (`Course_ID`),
-  ADD KEY `Staff_SSN` (`Staff_SSN`),
-  ADD KEY `Course_ID_2` (`Course_ID`),
-  ADD KEY `Dept_ID` (`Dept_ID`);
+  ADD KEY `Course_ID_2` (`Course_ID`);
 
 --
 -- Indexes for table `staff`
@@ -228,6 +221,22 @@ ALTER TABLE `student`
   ADD KEY `Dept_ID` (`Dept_ID`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `course`
+--
+ALTER TABLE `course`
+  MODIFY `Course_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `q_bank`
+--
+ALTER TABLE `q_bank`
+  MODIFY `Q_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -236,14 +245,6 @@ ALTER TABLE `student`
 --
 ALTER TABLE `course`
   ADD CONSTRAINT `C_DEPT_ID` FOREIGN KEY (`Dept_ID`) REFERENCES `department` (`Dept_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Constraints for table `q_bank`
---
-ALTER TABLE `q_bank`
-  ADD CONSTRAINT `Course_ID_QBANK` FOREIGN KEY (`Course_ID`) REFERENCES `course` (`Course_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `QBANK_DEPT_ID` FOREIGN KEY (`Dept_ID`) REFERENCES `department` (`Dept_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `STAFF_SSN_QBANK` FOREIGN KEY (`Staff_SSN`) REFERENCES `staff` (`SSN`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
 -- Constraints for table `staff`
