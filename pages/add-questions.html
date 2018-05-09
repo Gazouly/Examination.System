@@ -16,7 +16,6 @@
 		<div class="row">
 			<a href="#"><img class="logo" src="../resources/img/logo.png" alt="Question Logo" /></a>
 			<ul class="main-nav">
-				<li><a class="" href="profile.html"><i class="ion-android-contact"></i> Profile</a></li>
 				<li><a class="" href="settings.html"><i class="ion-android-options"></i> Settings</a></li>
 				<li><a class="" href="#"><i class="ion-power"></i> Sign Out</a></li>
 			</ul>
@@ -52,10 +51,10 @@
 					</div>
 				</form>
 				<div id="questions">
-					<form id="questions-form">
+					<form id="questions-form" method="POST">
 						<div id="question-details">
 							<span class="form-label">Question Type</span>
-							<select class="input-field question-type" name="question-type">
+							<select class="input-field question-type" name="question_type">
 								<option value="mcq">Multiple Choices</option>
 								<option value="tof">True or False</option>
 								<option value="complete">Complete</option>
@@ -121,13 +120,16 @@
 
         function add(x){
             var form = x.form;
-            var qType = form.questio-type.options[form.questio-type.selectedIndex].value;
+            var qType = form.question_type.options[form.question_type.selectedIndex].value;
             var qBody = form.questionsNo.value;
             var qCorrectAns = form.q1correct.value;
             var qAns1 = form.q1correct.value;
             var qAns2 = form.q1rngans1.value;
             var qAns3 = form.q1rngans2.value;
             var qAns4 = form.q1rngans3.value;
+            sql = "insert_into_q_bank_values(null,'" + qType + "','" + qBody + "','" + qCorrectAns + "','" + qAns1 + "','" + qAns2 + "','" + qAns3 + "','" + qAns4 + "','" + qCourse + "')";
+            console.log(sql);
+            x.form.action = "http://127.0.0.1:3000/" + sql + ".add";  
         }
         // var itm = document.getElementById('question-details'),
         //     cln = itm.cloneNode(true);
