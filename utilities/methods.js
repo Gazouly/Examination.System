@@ -33,7 +33,7 @@ function checkPage(req, res, data) {
 
 				} else if (req.url === "/profile.html") {
 					if (sql.search('staff') != -1) {
-						 profile_data = "<span class='form-label'>Full Name</span> <input class='input-field' type='text' value=" + res[0].Name +" disabled/> <span class='form-label'>Email Address</span> <input class='input-field' type='email' value=" + res[0].Email + " disabled/> <span class='form-label'>SSN</span> <input class='input-field' type='text' value=" + res[0].SSN + " disabled/> <span class='form-label'>Level/Title</span> <input class='input-field' type='text' value=" + res[0].Title + " disabled/>";
+						 profile_data = "<span class='form-label'>Full Name</span> <input class='input-field' type='text' value=" + __name +" disabled/> <span class='form-label'>Email Address</span> <input class='input-field' type='email' value=" + __email + " disabled/> <span class='form-label'>SSN</span> <input class='input-field' type='text' value=" + __SSN + " disabled/> <span class='form-label'>Level/Title</span> <input class='input-field' type='text' value=" + __signinCategory + " disabled/>";
 					
 						data = data.replace('{${profile_data}}', profile_data);
 						profile_data = "" ;
