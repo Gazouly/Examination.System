@@ -47,8 +47,7 @@
 					<div id="select-exam">
 						<span class="form-label">Select the course you want to take exam in it:</span>
 						<select class="input-field" name="courses">
-								<option value="circuits">Circuits</option>
-								<option value="steel">Steel</option>
+                            {${coursesOptions}}
 					</select>
 						<button type="button" class="btn-primary start-exam">Start Exam</button>
 					</div>
@@ -91,7 +90,7 @@
 		startExamBtn.addEventListener('click', function() {
 			document.querySelector('#exam').style.display = "block";
 			document.querySelector('#select-exam-form').style.display = "none";
-			document.getElementById('timer').innerHTML = 0 + " : " + 10;
+			document.getElementById('timer').innerHTML = 0 + " : " + 00;
 			startTimer();
 
 		});
@@ -106,7 +105,6 @@
 
 			if (m < 0) {
 				return;
-				document.forms
 			}
 
 			document.getElementById('timer').innerHTML = m + " : " + s;

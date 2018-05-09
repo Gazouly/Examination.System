@@ -48,22 +48,22 @@
 					<a class="btn-primary add-course-btn">Add Course</a>
 				</div>
 				<div id="add-course">
-					<form id="courses-form">
+					<form id="courses-form" method="POST">
 						<input class="input-field" name="courseName" type="text" placeholder="Course Name" required/>
 						<select class="input-field" name="Department">
-								<option value="electrical">Electrical Engineering</option>
-								<option value="civil">Civil Engineering</option>
-								<option value="architectural">Architectural Engineering</option>
+								<option value="1">Electrical Engineering</option>
+								<option value="2">Civil Engineering</option>
+								<option value="3">Architectural Engineering</option>
 						</select>
 						<select class="input-field" name="level">
 								<option value="1">Level 1</option>
 								<option value="2">Level 2</option>
 								<option value="3">Level 3</option>
-								<option value="3">Level 4</option>
+								<option value="4">Level 4</option>
 						</select>
 						<input class="input-field" name="midterm" type="text" placeholder="Midterm Grades" required/>
 						<input class="input-field" name="final" type="text" placeholder="Final Grades" required/>
-						<input id="signup" class="btn-success" type="submit" value="Add Course">
+						<input id="signup" class="btn-success" type="submit" value="Add Course" onclick="add(this)">
 					</form>
 				</div>
 			</div>
@@ -84,7 +84,20 @@
             sql = "delete_from_course_where_Course_ID_=" + delete_id;
             x.form.action = "http://127.0.0.1:3000/" + sql + ".del";  
             console.log(x.form.action);
-            x.form.submit();
+            //x.form.submit();
+        }
+        function add(x) {
+            var form = x.form;
+            var cName = form.courseName.value, 
+            cDepartment = form.Department.options[form.Department.selectedIndex].value,
+            cLevel = form.level.options[form.level.selectedIndex].value,
+            cMidDegree = form.midterm.value,
+            cFinalDegree = form.final.value;
+
+            sql = "insert_into_course_VALUES_('NULL','" + cName + "','" + cDepartment + "','" + cLevel + "','" + cMidDegree + "','" + cFinalDegree + "')";
+            console.log(sql);
+            x.form.action = "http://127.0.0.1:3000/" + sql + ".add";  
+            //x.form.submit();
         }
 		/* ---------- COURSES PAGE ---------- */
 	</script>

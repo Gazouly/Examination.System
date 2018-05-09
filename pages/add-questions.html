@@ -44,11 +44,10 @@
 					<div id="select-course">
 						<span class="form-label">Select the course you want to add questions in it: </span>
 						<select class="input-field" name="courses">
-								<option value="circuits">Circuits</option>
-								<option value="steel">Steel</option>
-					</select>
+                        {${coursesOptions}}
+                        </select>
 						<input class="input-field" name="questionsNo" type="text" placeholder="No. Of Questions" required />
-						<button class="btn-primary add-questions">Add Questions</button>
+						<button class="btn-primary add-questions" onclick="setCourse(this)">Add Questions</button>
 					</div>
 				</form>
 				<div id="questions">
@@ -68,7 +67,7 @@
 							<input class="input-field ans" name="q1rngans2" type="text" placeholder="Wrong Answer #2" required />
 							<input class="input-field ans" name="q1rngans3" type="text" placeholder="Wrong Answer #3" required />
 						</div>
-						<input class="btn-success" type="submit" value="Save Exam" />
+						<input class="btn-success" type="submit" value="Add Question" onclick="add(this)"/>
 					</form>
 				</div>
 			</div>
@@ -113,6 +112,22 @@
 				document.querySelector('#questions').style.display = "block";
 			}
         });
+        var qCourse;
+        function setCourse(x){
+            var form = x.form;
+            qCourse = form.courses.options[form.courses.selectedIndex].value;
+        }
+
+        function add(x){
+            var form = x.form;
+            var qType = form.questio-type.options[form.questio-type.selectedIndex].value;
+            var qBody = form.questionsNo.value;
+            var qCorrectAns = form.q1correct.value;
+            var qAns1 = form.q1correct.value;
+            var qAns2 = form.q1rngans1.value;
+            var qAns3 = form.q1rngans2.value;
+            var qAns4 = form.q1rngans3.value;
+        }
         // var itm = document.getElementById('question-details'),
         //     cln = itm.cloneNode(true);
         // document.getElementById('questions-form').appendChild(cln);

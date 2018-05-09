@@ -64,7 +64,7 @@
 						</select>
 						<input class="input-field" name="studentEmail" type="text" placeholder="Email Address" required/>
 						<input class="input-field" name="studentPassword" type="password" placeholder="Password" required/>
-						<input class="btn-success" type="button" value="Add Student" onclick="add(this)">
+						<input class="btn-success" type="submit" value="Add Student" onclick="add(this)">
 					</form>
 				</div>
 			</div>
@@ -87,7 +87,7 @@
             sql = "delete_from_student_where_SSN_=" + deleteSSN;
             x.form.action = "http://127.0.0.1:3000/" + sql + ".del";  
             console.log(x.form.action);
-            x.form.submit();
+            //x.form.submit();
         }
         function add(x) {
             var form = x.form;
@@ -100,7 +100,7 @@
 
             sql = "insert_into_student_VALUES_('" + sSSN + "','" + sName + "','" + sDepartment + "','" + sMail + "','" + sPassword + "','" + sLevel + "')";
             x.form.action = "http://127.0.0.1:3000/" + sql + ".add";  
-            x.form.submit();
+            //x.form.submit();
         }
         /* ---------- STUDENT PAGE ---------- */
 	</script>

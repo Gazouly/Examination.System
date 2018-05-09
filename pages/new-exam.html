@@ -43,9 +43,8 @@
 					<div id="select-course">
 						<span class="form-label">Select the course you want to add exam in it: </span>
 						<select class="input-field" name="courses">
-								<option value="circuits">Circuits</option>
-								<option value="steel">Steel</option>
-					</select>
+                            {${coursesOptions}}
+                        </select>
 						<input class="input-field" name="time" type="text" placeholder="Time in Minutes" required />
 						<input class="input-field" name="grade" type="text" placeholder="Exam Grade" required />
 						<button class="btn-primary add-questions">Add Exam</button>

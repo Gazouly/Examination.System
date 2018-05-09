@@ -6,6 +6,8 @@ function checkPage(req, res, data) {
         sql = "Select * from student ";
     } else if (req.url === "/add-course.html") {
         sql = "Select Course_ID, Course_name, Midterm_degree, Final_degree from course ";
+    } else if (req.url === "/add-question.html" || req.url === "/new-exam.html" || req.url === "/show-result.html" || req.url === "/take-exam.html" || req.url === "/stats.html") {
+        sql = "select * from course";
     }
     console.log(req.url);
 
@@ -16,32 +18,62 @@ function checkPage(req, res, data) {
                 if (err) throw err;
 
                 var table = ''; //to store html table
+                var options = "";
 
                 //create html table with data from res.
                 if (req.url === "/settings.html") {
+
+                } else if (req.url === "/new-exam.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
                 } else if (req.url === "/show-result.html") {
-
-                } else if (req.url === "/take-exam.html") {
-
-                } else if (req.url === "/show-result.html") {
-
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
                 } else if (req.url === "/add-exam.html") {
-
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
+                } else if (req.url === "/take-exam.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
+                } else if (req.url === "/stats.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
                 } else if (req.url === "/stats.html") {
 
                 } else if (req.url === "/add-student.html") {
                     for (var i = 0; i < res.length; i++) {
-                        table += '<tr><td>' + (i + 1) + '</td><td>' + res[i].Name + '</td><td>' + res[i].Email + '</td><td><input class="btn-danger" type="button" value="Delete" onclick="del(this)" name="' + res[i].SSN + '"></td></tr>';
+                        table += '<tr><td>' + (i + 1) + '</td><td>' + res[i].Name + '</td><td>' + res[i].Email + '</td><td><input class="btn-danger" type="submit" value="Delete" onclick="del(this)" name="' + res[i].SSN + '"></td></tr>';
                         //console.log(table);
                     }
                     table = '<form name="students-table" method="POST"><table class="table-scroll small-first-col text-center"><thead><tr><th>No.</th><th>Name</th><th>Email</th><th>Delete</th></tr><thead><tbody class="body-half-screen">' + table + '</tbody></table></form>';
                     data = data.replace('{${studentsTable}}', table);
                 } else if (req.url === "/add-course.html") {
                     for (var i = 0; i < res.length; i++) {
-                        table += '<tr><td>' + res[i].Course_ID + '</td><td>' + res[i].Course_name + '</td><td>' + res[i].Midterm_degree + '</td><td>' + res[i].Final_degree + '</td><td><input class="btn-danger" type="button" value="Delete" onclick="del(this)" name="' + res[i].Course_ID + '"></td></tr>';
+                        table += '<tr><td>' + res[i].Course_ID + '</td><td>' + res[i].Course_name + '</td><td>' + res[i].Midterm_degree + '</td><td>' + res[i].Final_degree + '</td><td><input class="btn-danger" type="submit" value="Delete" onclick="del(this)" name="' + res[i].Course_ID + '"></td></tr>';
                     }
                     table = '<form name="courses-table" method="POST"><table class="table-scroll small-first-col text-center"><thead><tr><th>ID</th><th>Course Name</th><th>Midterm</th><th>Final</th><th>Delete</th></tr><thead><tbody class="body-half-screen">' + table + '</tbody></table></form>';
                     data = data.replace('{${coursesTable}}', table);
+                } else if (req.url === "/add-questions.html") {
+                    for (var i = 0; i < res.length; i++) {
+                        options += '<option value="' + res[i].Course_ID + '">' + res[i].Course_name + '</option>\n'
+                    }
+                    data = data.replace('{${coursesOptions}}', options);
+                    options = "";
                 }
 
                 con.release(); //Done with mysql connection
@@ -61,7 +93,7 @@ function checkExtension(req, res, fs, path) {
     if (req.url.match("\.del$")) {
         var url = req.url.substring(1, req.url.length - 4);
         url = url.replace(/_/g, " ");
-        url = url.replace(/Course ID/g, "Course_ID");        
+        url = url.replace(/Course ID/g, "Course_ID");
         console.log(url);
         pool.getConnection((err, con) => {
             if (err) throw err;
@@ -79,7 +111,7 @@ function checkExtension(req, res, fs, path) {
             checkPage(req, res, data);
         });
         console.log(url);
-    }else if (req.url.match("\.add$")) {
+    } else if (req.url.match("\.add$")) {
         var url = req.url.substring(1, req.url.length - 4);
         url = url.replace(/_/g, " ");
         console.log(url);
